@@ -9,3 +9,20 @@ function add_book_item(bookList, book) {
 function delete_book_item(bookList, index) {
   bookList.splice(index, 1);
 }
+
+// Victoria 과제 작성
+const add_book = (list, item) => {
+  const newList = list.slice();
+  newList.push(item);
+  return newList;
+};
+
+const delete_book = (list, index) => {
+  const newList = list.slice();
+  newList.splice(index, 1);
+  return newList;
+};
+
+bookList = add_book(bookList, '죄와 벌');
+
+bookList = delete_book(bookList, 1);

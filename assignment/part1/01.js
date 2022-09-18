@@ -12,5 +12,19 @@ const addSnack = (cartList, snackName) => {
 };
 
 // 함수 사용 예시
-addSnack(cartList, "꿀호떡"); //[ '꿀호떡' ]
 addSnack(cartList, "꼬북칩"); //[ '꿀호떡', '꼬북칩' ]
+
+addSnack(cartList, "꿀호떡"); //[ '꿀호떡' ]
+
+
+/////// Victoria 과제 작성
+const addList = (list, name) => {
+  // 1. 배열을 복사한다.(복사본 만들기)
+  const newList = list.slice();
+  // 2. 복사본에 item을 추가한다.
+  newList.push(name);
+  // 3. 복사본을 리턴한다.
+  return newList;
+}
+
+cartList = addList(cartList, '꼬북칩');
