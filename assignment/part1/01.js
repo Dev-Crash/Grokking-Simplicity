@@ -6,11 +6,24 @@
 
 var cartList = [];
 
+const addElementLast = (array, item) => {
+  // 1. 복사본 만들기
+  const newArray = [...array];
+
+  // 2. 복사본 변경하기
+  newArray.push(item);
+
+  // 3. 복사본 리턴하기
+  return newArray;
+};
+
 const addSnack = (cartList, snackName) => {
-  cartList.push(snackName);
-  return cartList;
+  return addElementLas(cartList, snackName);
 };
 
 // 함수 사용 예시
-addSnack(cartList, "꿀호떡"); //[ '꿀호떡' ]
-addSnack(cartList, "꼬북칩"); //[ '꿀호떡', '꼬북칩' ]
+addSnack(cartList, '꿀호떡'); //[ '꿀호떡' ]
+addSnack(cartList, '꼬북칩'); //[ '꿀호떡', '꼬북칩' ]
+
+// 1. 여러 경우에 사용할 수 있도록 배열의 마지막 요소를 추가하는 addElementLast 함수를 만들었습니다.
+// 2. 카피 온 라이트의 기본 동작은 복사하기 => 복사본 수정하기 => 복사본 리턴하기 입니다.
