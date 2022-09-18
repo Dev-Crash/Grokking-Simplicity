@@ -105,3 +105,7 @@ const modifyComment = (feedList, feedId, commentId, content) => {
 
   return updatedFeedList;
 };
+
+// 1. 피드를 찾고, 코멘트를 찾은 후에 내용을 업데이트 해야 하는 함수입니다.
+// 2. 피드를 복사하고 코멘트를 복사할 수 있도록 updateArray 함수를 만들어서 이용했습니다.
+// 3. console.log를 이용해서 확인해보면 modifyComment가 동작한 후에도 원본은 그대로 유지되고 있음을 알 수 있습니다.
