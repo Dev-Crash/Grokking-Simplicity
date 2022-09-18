@@ -29,44 +29,44 @@
  */
 let feedList = [
   {
-    id: "A1",
-    author: "Wendy",
-    content: "오늘도... 필라테스 😂",
+    id: 'A1',
+    author: 'Wendy',
+    content: '오늘도... 필라테스 😂',
     totalLike: 340,
     commentList: [
       {
-        id: "A1B1",
-        author: "Daisy",
-        content: "필라테스 힘들죠...",
+        id: 'A1B1',
+        author: 'Daisy',
+        content: '필라테스 힘들죠...',
         isLike: false,
         totalLike: 12,
       },
       {
-        id: "A1B2",
-        author: "Eden",
-        content: "운동 머신...👍",
+        id: 'A1B2',
+        author: 'Eden',
+        content: '운동 머신...👍',
         isLike: false,
         totalLike: 3,
       },
     ],
   },
   {
-    id: "A2",
-    author: "Victoria",
-    content: "들기름 커피 신기하다!",
+    id: 'A2',
+    author: 'Victoria',
+    content: '들기름 커피 신기하다!',
     totalLike: 222,
     commentList: [
       {
-        id: "A2B1",
-        author: "Wendy",
-        content: "다음에 같이 가요!",
+        id: 'A2B1',
+        author: 'Wendy',
+        content: '다음에 같이 가요!',
         isLike: true,
         totalLike: 27,
       },
       {
-        id: "A2B2",
-        author: "Daisy",
-        content: "들기름 커피? 신기하네요!",
+        id: 'A2B2',
+        author: 'Daisy',
+        content: '들기름 커피? 신기하네요!',
         isLike: true,
         totalLike: 22,
       },
@@ -74,12 +74,34 @@ let feedList = [
   },
 ];
 
-// 아래의 함수를 리팩토링 해주시면 됩니다.
-const modifyComment = (feedId, commentId, content) => {
-  const targetFeed = feedList.find((feed) => feed.id === feedId);
-  let targetComment = targetFeed.commentList.find(
-    (comment) => comment.id === commentId
-  );
+const findFeed = (feedList, feedId) => {
+  return feedList.filter((feed) => feed.id === feedId)[0];
+};
 
-  targetComment.content = content;
+const updateArray = (array, { id, key, value }) => {
+  return array.map((item) => {
+    if (item.id === id) {
+      return { ...item, [key]: value };
+    } else {
+      return item;
+    }
+  });
+};
+
+// 아래의 함수를 리팩토링 해주시면 됩니다.
+const modifyComment = (feedList, feedId, commentId, content) => {
+  const targetFeed = findFeed(feedList, feedId);
+  const updatedComments = updateArray(targetFeed.commentList, {
+    id: commentId,
+    key: 'content',
+    value: content,
+  });
+
+  const updatedFeedList = updateArray(feedList, {
+    id: feedId,
+    key: 'commentList',
+    value: updatedComments,
+  });
+
+  return updatedFeedList;
 };
