@@ -4,7 +4,7 @@
 // 2. 그렇게 구현한 함수의 계층을 주석으로 알려주세요.
 
 const isInArray = (array, name) => {
-  for (leti = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i].name === name) {
       return true;
     }
@@ -19,12 +19,7 @@ const isInArray = (array, name) => {
  */
 
 const isInStockList = (stockList, name) => {
-  for (leti = 0; i < stockList.length; i++) {
-    if (stockList[i] === name) {
-      return i;
-    }
-  }
-  return null;
+  return isInArray(stockList, name);
 };
 
 // * 참고사항 *
