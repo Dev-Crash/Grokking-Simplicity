@@ -7,10 +7,14 @@
 var cartList = [];
 
 const addSnack = (cartList, snackName) => {
-  cartList.push(snackName);
-  return cartList;
+  // 1. 복사본 만들기
+  const newCartList = cartList.slice();
+  // 2. 복사본 변경하기
+  newCartList.push(snackName);
+  // 복사본 리턴하기
+  return newCartList;
 };
 
 // 함수 사용 예시
-addSnack(cartList, "꿀호떡"); //[ '꿀호떡' ]
-addSnack(cartList, "꼬북칩"); //[ '꿀호떡', '꼬북칩' ]
+addSnack(cartList, '꿀호떡'); //[ '꿀호떡' ]
+addSnack(cartList, '꼬북칩'); //[ '꿀호떡', '꼬북칩' ]

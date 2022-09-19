@@ -3,4 +3,19 @@
 // 간단하게 얕은 복사만 진행해도 좋습니다.
 
 // 아래에 작성해주세요.
-const copyData = () => {};
+let object = { id: '12341234', age: '30', name: 'wendy' };
+let array = ['사과', '바나나', '파인애플'];
+
+const copyData = (data) => {
+  let newData;
+  if (Array.isArray(data)) {
+    newData = [...data];
+  } else {
+    newData = { ...data };
+  }
+
+  return newData;
+};
+
+copyData(object);
+copyData(array);
