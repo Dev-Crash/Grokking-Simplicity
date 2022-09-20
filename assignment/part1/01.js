@@ -18,7 +18,7 @@ const addElementLast = (array, item) => {
 };
 
 const addSnack = (cartList, snackName) => {
-  return addElementLas(cartList, snackName);
+  return addElementLast(cartList, snackName);
 };
 
 // 함수 사용 예시
