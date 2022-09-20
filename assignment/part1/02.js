@@ -49,8 +49,8 @@ const isInArray = (array, name) => {
 
 const isInStockList = (array, name) => {
   const result =  isInArray(array, name);
-  return result ? result : null;
-}
+  return result ? array.findIndex(item => item===name) : null;
+};
 
 // 계층 구조 (숫자가 작을 수록 상위 구조)
 // 1. isInStockList
