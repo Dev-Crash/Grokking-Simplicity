@@ -14,3 +14,22 @@ const addSnack = (cartList, snackName) => {
 // 함수 사용 예시
 addSnack(cartList, "꿀호떡"); //[ '꿀호떡' ]
 addSnack(cartList, "꼬북칩"); //[ '꿀호떡', '꼬북칩' ]
+
+// ---------- 풀이
+
+// 계산
+const addItemToArr = (list, item) => {
+  const newList = list.slice(); // 1.복사본 만들기
+  newList.push(item); // 2.복사본 변경하기
+  return newList; // 3.복사본 리턴하기
+};
+
+// 액션
+const addSnack = (snackName) => {
+  cartList = addItemToArr(cartList, snackName);
+  return cartList;
+};
+
+// 함수 사용 예시
+addSnack('꿀호떡'); //[ '꿀호떡' ]
+addSnack('꼬북칩'); //[ '꿀호떡', '꼬북칩' ]

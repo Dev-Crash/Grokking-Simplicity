@@ -9,3 +9,16 @@ function add_book_item(bookList, book) {
 function delete_book_item(bookList, index) {
   bookList.splice(index, 1);
 }
+
+// ---------- 풀이
+const add_book_item = (list, book) => {
+  const newBookList = list.slice();
+  newBookList.push(book);
+  return newBookList;
+};
+
+const delete_book_item = (list, index) => {
+  const newBookList = list.slice();
+  newBookList.splice(index,1);
+  return newBookList;
+};

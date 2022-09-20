@@ -4,7 +4,7 @@
 // 2. 그렇게 구현한 함수의 계층을 주석으로 알려주세요.
 
 const isInArray = (array, name) => {
-  for (leti = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i].name === name) {
       return true;
     }
@@ -19,7 +19,7 @@ const isInArray = (array, name) => {
  */
 
 const isInStockList = (stockList, name) => {
-  for (leti = 0; i < stockList.length; i++) {
+  for (let i = 0; i < stockList.length; i++) {
     if (stockList[i] === name) {
       return i;
     }
@@ -35,3 +35,24 @@ const isInStockList = (stockList, name) => {
  * @property {string} name - 재고 이름
  * @property {number} price - 가격
  */
+
+// ---------- 풀이
+
+const isInArray = (array, name) => {
+  for(let i=0; i<array.length; i++){
+    if(array[i].name === name){
+      return true;
+    }
+  }
+  return false;
+}
+
+const isInStockList = (array, name) => {
+  const result =  isInArray(array, name);
+  return result ? array.findIndex(item => item===name) : null;
+};
+
+// 계층 구조 (숫자가 작을 수록 상위 구조)
+// 1. isInStockList
+// 2. inInArray
+// 3. inInArray 내부의 for loop / index of array 활용

@@ -83,3 +83,24 @@ const modifyComment = (feedId, commentId, content) => {
 
   targetComment.content = content;
 };
+
+// ---------- 풀이
+
+const findSameIdData = (list, findId) => {
+  return list.find((item)=>
+      item.id === findId
+  );
+};
+
+const modifyComment = (feedId, commentId, content) => {
+  const newFeedList = structuredClone(feedList);
+  const targetComment = findSameIdData(findSameIdData(newFeedList, feedId).commentList, commentId);
+  targetComment.content = content;
+  feedList = newFeedList;
+};
+
+// 1. 배열 요소 중 동일한 id값을 가진 데이터를 반환하는 계산 함수를 분리했습니다.(findSameIdData()) 이는 feed, comment를 찾는데 재사용됩니다.
+// 2. structuredClone Web API를 활용해 feedList의 깊은 복사를 진행합니다. (newFeedList)
+// 3. 깊은 복사본과 유틸함수 findSameIdData를 재사용해 변경할 댓글 targetComment를 찾습니다.
+// 4. 변경할 댓글 targetComment의 내용을 변경합니다. 이 때의 targetcomment는 깊은 복사본 newFeedList의 값이므로 원본값에 영향을 주지않습니다.
+// 5. 원본 feedList에 깊은 복사본 newFeedList를 할당해줍니다.
